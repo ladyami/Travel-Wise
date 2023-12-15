@@ -1,8 +1,11 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
 
 const PageNotFound = () => {
   return (
-    <div>PageNotFound</div>
+    <div>
+      <Navbar/>
+    </div>
   )
 }
 
