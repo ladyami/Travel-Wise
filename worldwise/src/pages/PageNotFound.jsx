@@ -1,12 +1,7 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-
-const PageNotFound = () => {
+export default function PageNotFound() {
   return (
     <div>
-      <Navbar/>
+      <h1>Page not found 😢</h1>
     </div>
-  )
+  );
 }
-
-export default PageNotFound
