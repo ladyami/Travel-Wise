@@ -52,7 +52,7 @@ function CitiesProvider({children}) {
 
        });
        const data = await res.json();
-       
+       console.log(data);
       } catch {
         alert('There was an error loading data...');
       } finally {

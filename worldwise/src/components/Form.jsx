@@ -70,7 +70,10 @@ function Form() {
       emoji,
       date,
       notes,
-      position: {lat, lng},
+      position: {
+        lat: Number(lat),
+        lng: Number(lng),
+      },
     };
     
     createCity(newCity)
@@ -79,7 +82,7 @@ function Form() {
   if(isLoadingGeocoding)  return <Sipnner />;
   //if(!lat && !lng) return <Message message="Start by Clicking somewhere on the map" />;
   if(geocodingError) return <Message message={geocodingError} />;
-
+  
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.row}>
