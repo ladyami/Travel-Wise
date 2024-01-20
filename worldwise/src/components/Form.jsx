@@ -11,6 +11,7 @@ import { useUrlPosition } from "../hooks/useUrlPosition";
 import Message from "./Message";
 import Sipnner from './Sipnner';
 import { useCities } from "../contexts/CitiesContext";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -27,8 +28,9 @@ const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 function Form() {
   
   const [lat, lng] = useUrlPosition();
-  const {createCity} = useCities();
-  const [isLoadingGeocoding,  setIsLoadingGeocoding] =useState(false)
+  const {createCity, isLoading} = useCities();
+  const navigate = useNavigate;
+  const [isLoadingGeocoding,  setIsLoadingGeocoding] = useState(false)
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
   const [date, setDate] = useState(new Date());
@@ -60,7 +62,7 @@ function Form() {
     fetchCityData();
   }, [lat, lng] );
   
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (!cityName || !date ) return;
 
@@ -73,10 +75,11 @@ function Form() {
       position: {
         lat: Number(lat),
         lng: Number(lng),
-      },
+      }
     };
     
-    createCity(newCity)
+    await createCity(newCity);
+    navigate("/app/cities");
   };
   
   if(isLoadingGeocoding)  return <Sipnner />;
@@ -84,7 +87,7 @@ function Form() {
   if(geocodingError) return <Message message={geocodingError} />;
   
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={`${styles.form} ${isLoading ? styles.loading : ""}`} onSubmit={handleSubmit}>
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
@@ -111,7 +114,7 @@ function Form() {
       </div>
 
       <div className={styles.buttons}>
-        <Button type="primary" >Add</Button>
+        <button onSubmit={handleSubmit} type="primary" >Add</button>
         <BackButton/>
         
       </div>
