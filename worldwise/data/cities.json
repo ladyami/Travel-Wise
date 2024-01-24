@@ -35,6 +35,42 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Chongpyong County",
+      "country": "Korea (the Democratic People's Republic of)",
+      "emoji": "🇰🇵",
+      "date": "2024-01-24T10:29:20.812Z",
+      "notes": "city test",
+      "position": {
+        "lat": 0,
+        "lng": 0
+      },
+      "id": 98443198
+    },
+    {
+      "cityName": "Bight of Benin",
+      "country": "Benin",
+      "emoji": "🇧🇯",
+      "date": "2024-01-24T10:41:57.203Z",
+      "notes": "test",
+      "position": {
+        "lat": 0,
+        "lng": 0
+      },
+      "id": 98443201
+    },
+    {
+      "cityName": "Kanazi",
+      "country": "Rwanda",
+      "emoji": "🇷🇼",
+      "date": "2024-01-24T10:42:43.157Z",
+      "notes": "i love rwanda",
+      "position": {
+        "lat": 0,
+        "lng": 0
+      },
+      "id": 98443202
     }
   ]
 }
